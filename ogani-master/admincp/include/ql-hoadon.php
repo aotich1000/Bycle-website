@@ -73,19 +73,19 @@ if (isset($_GET['trangthai'])) {
 <div class="container-fluid">
 
                    <!-- Page Heading --> 
-                   <h1 class="h3 mb-2 text-gray-800">Quản lý tài khoản hóa đơn</h1>
+                   <h1 class="h3 mb-2 text-gray-800 middle">Quản lý tài khoản hóa đơn</h1>
                    <?php if($action == 'show'){?>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 Xem hóa đơn trong khoảng:
-                <form action="index.php?id=quanlyhoadon&action=showhdtheongay" method="POST">
+                <form action="index.php?id=quanlyhoadon&action=showhdtheongay" method="POST" class="form-group"> 
                     Ngày bắt đầu
-                    <input type="date" name="sdate" id="sdate">
+                    <input type="date" name="sdate" id="sdate" class="form-control" style="width: 15%; display: inline-block; ">
                     Ngày kết thúc
-                    <input type="date" name="edate" id="edate">
-                    <button type="submit">Thực hiện</button>
+                    <input type="date" name="edate" id="edate" class="form-control" style="width: 15%; display: inline-block;">
+                    <br><button type="submit" class="btn btn-primary">Thực hiện</button>
                 </form>
             </div>
             <div class="card-body">

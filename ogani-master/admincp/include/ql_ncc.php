@@ -47,7 +47,7 @@ if (isset($_GET['trangthai'])) {
 
 <div class="container-fluid">
 
-    <h1 class="h3 mb-2 text-gray-800">Quản lý nhập hàng</h1>
+    <h1 class="h3 mb-2 text-gray-800 middle">Quản lý nhập hàng</h1>
     <?php
     if ($action == 'xuli') {
         $id_pn = $_GET['idnhaphang'];

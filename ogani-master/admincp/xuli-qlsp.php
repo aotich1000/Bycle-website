@@ -16,10 +16,16 @@ if (isset($_GET['action'])) {
 
         $sql_checksp = "Select * from tbl_sanpham where ten_sanpham =  '$tensanpham' ";
         
+        $result_check = mysqli_query($con,$sql_checksp);
+        if(mysqli_num_rows($result_check)>0){
+            echo "true";
+        }else{echo "false";}
+       
+
         $target_file = $path . basename($_FILES["images"]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         if (isset($_POST['submit'])) {
-            if(!mysqli_query($con,$sql_checksp)){
+            if(mysqli_num_rows($result_check)<1){
             $check = getimagesize($_FILES["images"]["tmp_name"]);
             if ($check !== false) {
                 if ($_FILES["images"]["size"] <= 500000) {

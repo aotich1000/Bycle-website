@@ -29,9 +29,10 @@ if (isset($_GET['trangthai'])) {
                     ?>
 
 
+
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Quản lý sản phẩm</h1>
+    <h1 class="h3 mb-2 text-gray-800 middle">Quản lý sản phẩm</h1>
     <?php if ($action == 'show') { ?>
 
         <!-- DataTales Example -->
@@ -58,7 +59,6 @@ if (isset($_GET['trangthai'])) {
                                 <th>ID sản phẩm</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Loại sản phẩm</th>
-                                <th>Mô tả</th>
                                 <th>Giá </th>
                                 <th>Trạng thái</th>
                                 <th>Số lượng</th>
@@ -73,7 +73,6 @@ if (isset($_GET['trangthai'])) {
                                     <td><?php echo $data['id_sanpham'] ?></td>
                                     <td><?php echo $data['ten_sanpham'] ?></td>
                                     <td><?php echo $data['ten_loaisp'] ?></td>
-                                    <td><?php echo $data['mota'] ?></td>
                                     <td><?php echo $data['gia'] ?></td>
                                     <td>
                                         <?php if ($data['trangthai'] == 1) {
@@ -82,7 +81,7 @@ if (isset($_GET['trangthai'])) {
                                             echo "Hết hàng";
                                         } ?></td>
                                     <td><?php echo $data['soluong'] ?></td>
-                                    <td><img src="/project/upload/<?php echo $data['images'] ?>" alt="111"></td>
+                                    <td><img src="../upload/<?php echo $data['images'] ?>" alt="111"></td>
                                     <td>
                                         <?php for ($i = 0; $i < count($quyenquanlysanpham); $i++) {
                                             if ($quyenquanlysanpham[$i] == 'xoa') {
@@ -125,35 +124,40 @@ if (isset($_GET['trangthai'])) {
                     </div>
                 </div>
             <?php } else if ($action == "themsp") { ?>
-                <div>
-                    <h3>Thêm sản phẩm mới</h3>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h3>Thêm sản phẩm mới</h3>
+                    </div>
+                    <div class="card-body">
                     <form action="xuli-qlsp.php?action=themsp" method="POST" enctype="multipart/form-data">
                         <label for="tensp">Tên sản phẩm:</label><br>
-                        <input type="text" name="tensp" id="tensp"><br>
+                        <input type="text" name="tensp" id="tensp" class="form-control" style="width: 50%;"><br>
                         <label for="loaisp">Loại sản phẩm:</label><br>
 
-                        <select name="loaisp" id="loaisp">
+                        <select name="loaisp" id="loaisp" class="form-control" style="width: 30%;">
                             <?php while ($data2 = mysqli_fetch_assoc($query_lp)) { ?>
                                 <option value="<?php echo $data2['id_loaisp'] ?>"><?php echo $data2['ten_loaisp'] ?></option>
                             <?php } ?>
                         </select><br>
                         <label for="mota">Mô tả sản phẩm:</label><br>
-                        <textarea name="mota" id="mota" cols="40" rows="5"></textarea><br>
+                        <textarea name="mota" id="mota" cols="40" rows="10" class="form-control"></textarea><br>
                         <label for="gia">Giá tiền:</label><br>
-                        <input type="text" name="gia" id="gia"><br>
+                        <input type="text" name="gia" id="gia" class="form-control" style="width: 50%;"><br>
                         <label for="trangthai">Trạng thái:</label><br>
-                        <select name="trangthai" id="trangthai">
+                        <select name="trangthai" id="trangthai" class="form-control" style="width: 30%;">
                             <option value="1">Còn hàng</option>
                             <option value="0">Hết hàng</option>
                         </select><br>
                         <label for="soluong">Số lượng</label><br>
-                        <input type="text" name="soluong" id="soluong"><br>
+                        <input type="text" name="soluong" id="soluong" class="form-control" style="width: 50%;"><br>
                         <label for="images">Ảnh sản phẩm:</label><br>
                         <input type="file" name="images" id="images"><br><br>
-                        <button type="submit" name="submit">Thực hiện</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Thực hiện</button>
+                        <button type="button" onclick="window.history.back(-1)" class="btn btn-primary">Trở lại</button>
                     </form>
                     <br>
-                    <button type="submit" onclick="window.history.back(-1)">Trở lại</button>
+                    
+                    </div>
                 </div>
             <?php } else if ($action == 'sua') {
             $id_sanpham1 = $_GET['id_sanpham'];
@@ -163,13 +167,16 @@ if (isset($_GET['trangthai'])) {
             $data1 = mysqli_fetch_assoc($query_sua);
 
             ?>
-                <div>
-                    <h3>Sửa</h3>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h3>Sửa thông tin sản phẩm</h3>
+                    </div>
+                    <div class="card-body">
                     <form action="xuli-qlsp.php?action=sua&id_sanpham=<?php echo $id_sanpham1 ?>" method="POST" enctype="multipart/form-data">
                         <label for="tensp">Tên sản phẩm:</label><br>
-                        <input type="text" name="tensp" id="tensp" value="<?php echo $data1['ten_sanpham'] ?>"><br>
+                        <input type="text" name="tensp" id="tensp" value="<?php echo $data1['ten_sanpham'] ?>" class="form-control" style="width: 50%;"><br>
                         <label for="loaisp">Loại sản phẩm:</label><br>
-                        <select name="loaisp" id="loaisp">
+                        <select name="loaisp" id="loaisp"  class="form-control" style="width: 30%;">
                             <?php while ($data2 = mysqli_fetch_assoc($query_lp)) {
                                 if ($data1['loaisp'] == $data2['id_loaisp']) {
                             ?>
@@ -182,11 +189,11 @@ if (isset($_GET['trangthai'])) {
                             } ?>
                         </select><br>
                         <label for="mota">Mô tả sản phẩm:</label><br>
-                        <textarea type="text" name="mota" id="mota" cols="40" rows="5"><?php echo $data1['mota'] ?> </textarea><br>
+                        <textarea type="text" name="mota" id="mota" cols="40" rows="10" class="form-control"><?php echo $data1['mota'] ?> </textarea><br>
                         <label for="gia">Giá tiền:</label><br>
-                        <input type="text" name="gia" id="gia" value="<?php echo $data1['gia'] ?>"><br>
+                        <input type="text" name="gia" id="gia" class="form-control" style="width: 50%;" value="<?php echo $data1['gia'] ?>"><br>
                         <label for="trangthai">Trạng thái:</label><br>
-                        <select name="trangthai" id="trangthai">
+                        <select name="trangthai" id="trangthai"  class="form-control" style="width: 30%;">
                             <?php
                             if ($data1['trangthai'] == 1) { ?>
                                 <option value="1" selected>Còn hàng</option>
@@ -198,17 +205,19 @@ if (isset($_GET['trangthai'])) {
                             <?php }; ?>
                         </select><br>
                         <label for="soluong">Số lượng</label><br>
-                        <input type="text" name="soluong" id="soluong" value="<?php echo $data1['soluong'] ?>"><br>
+                        <input type="text" name="soluong" id="soluong" class="form-control" style="width: 50%;" value="<?php echo $data1['soluong'] ?>"><br>
                         <label for="images">Ảnh sản phẩm:</label><br>
-                        <input type="file" name="images" name="images" id="images"><br>
+                        <input type="file" name="images" name="images" id="images"  class="form-control" style="width: 30%;"><br>
                         <?php echo $data1['images'] ?>
                         <img src="/project/upload/<?php echo $data1['images'] ?>" alt="">
                         <br>
                         <button><a href="" id="boanh" onclick="boanh(<?php echo $id_sanpham1 ?>)">Bỏ ảnh</a></button>
                         <br> <br>
-                        <button type="submit" name="submit">Thực hiện</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Thực hiện</button>
+                        <button type="button" onclick="window.history.back(-1)" class="btn btn-primary">Trở lại</button>
                     </form>
-                    <button type="submit" onclick="window.history.back(-1)">Trở lại</button>
+                    
+                    </div>
                 </div>
             <?php } else if ($action == 'repass') {
             $id_user = $_GET['id-user']; ?>

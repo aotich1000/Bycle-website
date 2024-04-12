@@ -6,12 +6,29 @@ Xe đạp đua
 Xe đạp nữ
 Xe đạp fixed gear
 Xe đạp khác
-Xe đạp phổ thông -->
+Xe đạp phổ thông 
+*thêm img vào danh mục sản phẩm
+*tạo chức năng quản lý nhà cung cấp
+*khóa ngoại sản phẩm với nhà cung cấp
+*load sản phẩm
+*đăng nhập/đăng ký
+*mua hàng
+*thông tin cá nhân
+*xem hóa đơn
+*load banner
+
+-->
 
 
 
 
 <!-- Hero Section Begin -->
+<?php 
+    $sql_hero_category = "Select * from tbl_phanloaisp";
+    $query_hero_category = mysqli_query($con,$sql_hero_category);
+
+?>
+
 <section class="hero">
         <div class="container">
             <div class="row">
@@ -22,8 +39,10 @@ Xe đạp phổ thông -->
                             <span>All departments</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
+                            <?php while($data_category = mysqli_fetch_assoc($query_hero_category)){?>
+                            <li><a href="#"><?php echo $data_category['ten_loaisp']?></a></li>
+                            <?php }?>
+                            <!-- <li><a href="#">Vegetables</a></li>
                             <li><a href="#">Fruit & Nut Gifts</a></li>
                             <li><a href="#">Fresh Berries</a></li>
                             <li><a href="#">Ocean Foods</a></li>
@@ -32,8 +51,9 @@ Xe đạp phổ thông -->
                             <li><a href="#">Fresh Onion</a></li>
                             <li><a href="#">Papayaya & Crisps</a></li>
                             <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                            <li><a href="#">Fresh Bananas</a></li> -->
                         </ul>
+                        
                     </div>
                 </div>
                 <div class="col-lg-9">

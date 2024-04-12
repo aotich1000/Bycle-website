@@ -1,4 +1,8 @@
+<?php 
+    include "./admincp/config/config.php";
 
+    
+?>
 
 
 

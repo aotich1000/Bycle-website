@@ -112,12 +112,14 @@ if (isset($_GET['trangthai'])) {
             document.getElementById("xoa").href = "xuli-qladmin.php?action=xoa&&id-admin=" + id;
         } else {}
     }
+
+    
 </script>
 
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Quản lý tài khoản Admin</h1>
+    <h1 class="h3 mb-2 text-gray-800 middle">Quản lý tài khoản Admin</h1>
     <?php if ($action == 'show') { ?>
 
         <!-- DataTales Example -->
@@ -209,7 +211,7 @@ if (isset($_GET['trangthai'])) {
             <h3>Thêm tài khoản mới</h3>
             <form action="" method="POST" id="themtk" onsubmit="return checkthemtk()">
                 <label for="ten">Tên:</label><br>
-                <input type="text" name="ten" id="ten"> <br>
+                <input type="text" name="ten" id="ten" class="form-control" style> <br>
                 <label for="tendn">Tên tài khoản:</label><br>
                 <input type="text" name="tendn" id="tendn"><br>
                 <label for="password">Password</label><br>

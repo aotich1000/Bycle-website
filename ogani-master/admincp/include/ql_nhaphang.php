@@ -120,7 +120,7 @@ if (isset($_GET['xoa'])) {
 }
 ?>
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800">Quản lý nhập hàng</h1>
+    <h1 class="h3 mb-2 text-gray-800 middle">Quản lý nhập hàng</h1>
     <?php if ($action == 'show') { ?>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -145,6 +145,12 @@ if (isset($_GET['xoa'])) {
                         <button type="submit" class="btn btn-primary">Xác nhận</button>
                     </div>
                 </form>
+                        <a href="index.php?id=quanlynhaphang&action=thempn" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-flag"></i>
+                    </span>
+                    <span class="text">Thêm phiếu nhập mới</span>
+                </a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -214,12 +220,7 @@ if (isset($_GET['xoa'])) {
                 </div>
             </div>
         </div>
-        <a href="index.php?id=quanlynhaphang&action=thempn" class="btn btn-success btn-icon-split">
-            <span class="icon text-white-50">
-                <i class="fas fa-flag"></i>
-            </span>
-            <span class="text">Thêm phiếu nhập mới</span>
-        </a>
+        
     <?php } ?>
     <?php if ($action == 'xemchitiet') { ?>
         <div class="card shadow mb-4">

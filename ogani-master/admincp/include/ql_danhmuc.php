@@ -38,7 +38,7 @@ if (isset($_GET['trangthai'])) {
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Quản lý danh mục sản phẩm</h1>
+    <h1 class="h3 mb-2 text-gray-800 middle">Quản lý danh mục sản phẩm</h1>
     <?php if ($action == 'show') { ?>
 
         <!-- DataTales Example -->
